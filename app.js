@@ -8,6 +8,17 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
     console.log('a user connected');
+
+    //Handle chat event
+    io.on('chat', function(data){
+      //console.log(data);
+      io.sockets.emit('chat', data);
+    });
+
+    //Handle typing event
+    io.on('typing', function(data){
+      socket.broadcast.emit('typing', data);
+    });
 });
 
 http.listen(3000, () => {
@@ -25,4 +36,3 @@ io.on('connection', (socket) => {
         io.emit('chat message', msg);
     });
 });
-
