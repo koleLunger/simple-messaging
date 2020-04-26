@@ -18,6 +18,9 @@
   "homepage": "https://github.com/josh-daisey/simple-messaging#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "socket.io": "^2.3.0"
+    "express-session": "^1.17.1",
+    "socket.io": "^2.3.0",
+    "socket.io-cookie-parser": "^1.0.0",
+    "sqlite3": "^4.1.1"
   }
 }

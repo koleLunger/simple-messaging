@@ -32,7 +32,7 @@ form input {
 }
 
 form button {
-  width: auto;
+  width: 5%;
   background: rgb(130, 224, 255);
   border-radius: 25px;
   border: none;
@@ -46,14 +46,28 @@ form button {
 
 #messages li {
   padding: 5px 10px;
+  width: 30%;
+  margin-top: 10px;
+  border-radius: 20px;
+  border-width: 1px;
+  border-color: #aaa;
+  border-style: solid;
+  margin-left: 35%;
+  word-wrap: break-word;
 }
 
 #messages li:nth-child(odd) {
   background: #eee;
 }
 
+
 #feedback p{
 color: #aaa;
 padding: 14px 0px;
 margin: 0 20px;
+}
+
+#username{
+  padding-top: 10px;
+  margin-left: 35%;
 }
