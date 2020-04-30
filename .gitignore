@@ -1,5 +1,4 @@
 node_modules
 test
 run.bat
-db/database.db
 .vscode
