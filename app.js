@@ -20,6 +20,10 @@ app.get('/chat', (req, res) => {
     res.sendFile(__dirname + '/site/chat.html');
 });
 
+app.get('/register', (req, res) => {
+    res.sendFile(__dirname + '/site/register.html');
+});
+
 app.use(session({
 	secret: 'secret',
 	resave: true,
@@ -56,6 +60,37 @@ app.post('/auth', function (req, res) {
 			}
 
 		});
+	} else {
+		res.send('Please enter Username and Password!');
+		res.end();
+	}
+});
+
+// runs when a user tries to login
+app.post('/reg', function (req, res) {
+	let username = req.body.username;
+	let password = req.body.password;
+	let key = generateKey()
+	let expiration = Math.round((new Date()).getTime() / 1000) + 2592000
+
+	if (username && password) {
+		db.get('SELECT * FROM accounts WHERE username = \'' + username + '\' ;', function (err, results) {
+		if (!results){
+		db.run('INSERT INTO accounts(username, password, email, key, expire) VALUES(?, ?, ?, ?, ?)', [username, password, "placeholder", key, expiration], function(err){
+			console.log("done")
+			res.cookie('key', key)
+					res.redirect(url.format({
+						pathname: "/chat",
+
+					}));
+					res.end();
+		  });
+		}else{
+			res.send('Username Taken!');
+			res.end();
+		}
+		})
+	
 	} else {
 		res.send('Please enter Username and Password!');
 		res.end();
