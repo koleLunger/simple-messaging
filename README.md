@@ -1,3 +1,4 @@
-# simple-messaging
+# Simple Messaging
 NodeJS messaging app
+
 ![](example.gif)
