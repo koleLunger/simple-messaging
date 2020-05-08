@@ -1,0 +1,32 @@
+doctype html
+html(lang='en')
+    head
+        title Spart Login.
+        style
+            include style.css
+    div(class="login-form")
+        body
+            h1 Login Form
+
+            form(action="auth" method="POST")
+                input(
+                type='text'
+                name='username'
+                placeholder='Username'
+                required
+                )
+                input(
+                type='password'
+                name='password'
+                placeholder='Password'
+                required
+                )
+                input(
+                name='ip'
+                type='hidden'
+                value=ip
+                required
+                )
+                input(
+                type="submit"
+                )
